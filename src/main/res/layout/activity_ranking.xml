@@ -40,15 +40,6 @@
             android:text="@string/reiniciar"
             app:backgroundTint="@color/reiniciar" />
 
-        <Button
-            android:id="@+id/botaoHistorico"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="listaPontuacao"
-            android:text="@string/pontos"
-            app:backgroundTint="@color/reiniciar" />
-
     </LinearLayout>
 
     <FrameLayout

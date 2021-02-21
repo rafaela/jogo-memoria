@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private int posicaoAtual = 1;
     private int[] colorsButtons;
     private Chronometer timer;
-    private int erros;
+    private int jogadas;
 
 
     @Override
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         timer = (Chronometer) findViewById(R.id.timer);
         timer.start();
-        erros = 0;
+        jogadas = 0;
 
     }
 
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void analisarJogada(View view){
 
-        erros++;
+        jogadas++;
         ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.tela);
         Button button = (Button) view;
         ProgressBar bar = (ProgressBar) findViewById(R.id.progressBar);
@@ -98,14 +99,17 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, Parabens.class);
             if (intent != null){
                 intent.putExtra("Tempo", timer.getText());
-                intent.putExtra("Pontos", String.format("%d",erros));
+                intent.putExtra("Pontos", String.format("%d",jogadas));
                 startActivity(intent);
             }
         }
     }
 
     public void reiniciar(View view){
+        timer.setBase(SystemClock.elapsedRealtime());
+        timer.stop();
         timer.start();
+        jogadas = 0;
         ((ConstraintLayout) findViewById(R.id.tela)).setBackgroundColor(Color.WHITE);
         showButtons();
         ((ProgressBar) findViewById(R.id.progressBar)).setProgress(0);

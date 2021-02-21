@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.jogomemoria.database.Database;
 import com.example.jogomemoria.modelo.Ranking;
@@ -26,13 +27,21 @@ public class RankingActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.lista);
 
         db = new Database(this);
-        String [] itens = new String[db.all().size()];
+        String [] itens = new String[]{
+                "Teste 1", "Teste 2"
+        };
         int i = 0;
         for (Ranking p : db.all())
             itens[i++] = String.format("Nome: %s | Tempo: %s",p.getNome(),p.getTempo());
 
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,itens);
 
+        listView.setAdapter(adapter);
+
+        listView = (ListView) findViewById(R.id.lista);
+
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,itens);
         listView.setAdapter(adapter);
 
     }
@@ -44,16 +53,7 @@ public class RankingActivity extends AppCompatActivity {
     }
 
     public void listaPontuacao(View view){
-        ListView listView = (ListView) findViewById(R.id.lista);
-        String [] itens = new String[db.all().size()];
-        Button botaoHistorico = (Button) findViewById(R.id.botaoHistorico);
-        int i = 0;
-        for (Ranking p : db.all()) {
-                itens[i++] = String.format("Nome: %s | Tempo: %s",p.getNome(),p.getTempo());
-        }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,itens);
-        listView.setAdapter(adapter);
     }
 
     public void limparHistorico(View view){

@@ -40,7 +40,7 @@
         android:layout_marginTop="369dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:onClick="salvarPontuacao"
+        android:onClick="salvar"
         android:text="Salvar"
         app:backgroundTint="@color/reiniciar"
         app:layout_constraintEnd_toEndOf="parent"

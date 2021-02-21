@@ -4,12 +4,19 @@ public class Ranking {
     private String nome;
     private int pontos;
     private int posicao;
-    private int tempo;
+    private String tempo;
 
     public Ranking() {
     }
 
-    public Ranking(String nome, int pontos, int posicao, int tempo) {
+    public Ranking(String nome, int pontos, int posicao, String tempo) {
+        this.nome = nome;
+        this.pontos = pontos;
+        this.posicao = posicao;
+        this.tempo = tempo;
+    }
+
+    public Ranking(String nome, int pontos, String tempo) {
         this.nome = nome;
         this.pontos = pontos;
         this.posicao = posicao;
@@ -40,11 +47,11 @@ public class Ranking {
         this.posicao = posicao;
     }
 
-    public int getTempo() {
+    public String getTempo() {
         return tempo;
     }
 
-    public void setTempo(int tempo) {
+    public void setTempo(String tempo) {
         this.tempo = tempo;
     }
 

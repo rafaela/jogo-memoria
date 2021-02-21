@@ -17,18 +17,20 @@ public class PontuacaoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Toast.makeText(this, "ranking.toString()", Toast.LENGTH_LONG).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pontuacao);
+
         db = new Database(this);
     }
 
-    public void salvaPontuacao(View view){
+    public void salvar(View view){
         String tempo = getIntent().getStringExtra("Tempo");
         int pontos = Integer.parseInt(getIntent().getStringExtra("Pontos"));
         TextInputEditText nome = (TextInputEditText)findViewById(R.id.nome);
         Ranking ranking = new Ranking();
 
-        ranking.setTempo(Integer.parseInt(tempo));
+        ranking.setTempo(tempo);
         ranking.setPontos(pontos);
         ranking.setNome(nome.getText().toString());
         Toast.makeText(this, ranking.toString(), Toast.LENGTH_LONG).show();
