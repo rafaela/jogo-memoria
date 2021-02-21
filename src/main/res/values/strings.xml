@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Jogo da Memória</string>
+    <string name="voltar">Voltar</string>
+    <string name="ranking">Ranking de Pontuação</string>
+    <string name="ranking2">Ranking</string>
+    <string name="reiniciar">Reiniciar</string>
+    <string name="parabens">Parabéns</string>
+    <string name="novojogo">Novo Jogo</string>
+    <string name="pontos">Pontos</string>
+    <string name="limpar">Limpar</string>
+
+
+    Limpar Histórico
+</resources>
